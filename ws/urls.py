@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from LocateTarget.views import LocateTarget
+from GetObjectLoB.views import GetObjectLoB
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^LocateTarget/$', LocateTarget),
+    url(r'^GetObjectLoB/$', GetObjectLoB),
 ]
