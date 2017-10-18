@@ -3,7 +3,8 @@ import os
 import sys
 
 from socket import gethostname, gethostbyname 
-ALLOWED_HOSTS = [ gethostname(), gethostname() + ":8000", gethostbyname(gethostname()), gethostbyname(gethostname()) + ":8000", "*" ] 
+os.environ.setdefault("HOST",gethostname());
+ALLOWED_HOSTS = [ os.environ.get("HOST"), gethostbyname(os.environ.get("HOST")), "*" ] 
 
 DEBUG = True
 
