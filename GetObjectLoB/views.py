@@ -9,7 +9,7 @@ import json
 @csrf_exempt
 def GetObjectLoB(request):
     
-    person = ObjectLoB.personLoB(request.body.decode("utf-8"))
+    person = ObjectLoB.PersonLoB(request.body.decode("utf-8"))
     resp = HttpResponse(json.dumps(person))
     resp.__setitem__("Content-Type", "application/json")
     
