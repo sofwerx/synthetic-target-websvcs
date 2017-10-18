@@ -2,8 +2,10 @@
 import os
 import sys
 
+from socket import gethostname, gethostbyname 
+ALLOWED_HOSTS = [ gethostname(), gethostbyname(gethostname()), "*" ] 
+
 DEBUG = True
-ALLOWED_HOSTS = ['*']
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ws.settings")
