@@ -18,9 +18,11 @@ from django.contrib import admin
 
 from LocateTarget.views import LocateTarget
 from GetObjectLoB.views import GetObjectLoB
+from DTA.views import DTA
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^LocateTarget/$', LocateTarget),
     url(r'^GetObjectLoB/$', GetObjectLoB),
+    url(r'^DTA/$', DTA)
 ]
