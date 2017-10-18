@@ -3,7 +3,7 @@ import os
 import sys
 
 from socket import gethostname, gethostbyname 
-ALLOWED_HOSTS = [ gethostname(), gethostbyname(gethostname()), "*" ] 
+ALLOWED_HOSTS = [ gethostname(), gethostname() + ":8000", gethostbyname(gethostname()), gethostbyname(gethostname()) + ":8000", "*" ] 
 
 DEBUG = True
 
