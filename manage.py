@@ -3,6 +3,7 @@ import os
 import sys
 
 DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ws.settings")
