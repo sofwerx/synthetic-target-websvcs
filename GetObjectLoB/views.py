@@ -9,9 +9,8 @@ import json
 @csrf_exempt
 def GetObjectLoB(request):
     
-    t = ObjectLoB.personLoB(image, fov, ch)
-    targetLoc = t.locate(request.body.decode("utf-8"))
-    resp = HttpResponse(targetLoc)
+    person = ObjectLoB.personLoB(request.body.decode("utf-8"))
+    resp = HttpResponse(json.dumps(person))
     resp.__setitem__("Content-Type", "application/json")
     
     return resp
