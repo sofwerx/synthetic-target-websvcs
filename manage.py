@@ -2,12 +2,6 @@
 import os
 import sys
 
-from socket import gethostname, gethostbyname 
-os.environ.setdefault("HOST",gethostname());
-ALLOWED_HOSTS = [ os.environ.get("HOST"), gethostbyname(os.environ.get("HOST")), "*" ] 
-
-DEBUG = True
-
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ws.settings")
     os.environ.setdefault("PYTHONPATH", "../lib")
