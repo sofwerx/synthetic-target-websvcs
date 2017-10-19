@@ -18,7 +18,9 @@ def DTA(request):
     keeper = {lat: req.lat, lon: req.lon, aob: aob}
     # TODO: stuff keeper somewhere
     
-    keepers_three = [
+    keepers_three = {
+        coords:
+        [
             {
             lat: 00,
              lon: 00,
@@ -35,6 +37,7 @@ def DTA(request):
              aob: 00 
              }
         ]
+    }
     
     # if this is the 3rd point, triangulate & post to map server (or display)
     t = Triangulator.TargetLoc(keepers_three)
