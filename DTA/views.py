@@ -2,6 +2,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 import json
 
+from swx import object_lob, triangulator
+
 ###########
 # Distributed Telemetry Acquisition
 ###########
@@ -12,7 +14,8 @@ def DTA(request):
     req = json.loads(bod)
     
     # call OblectLoB, persist result
-    aob = ObjectLoB.PersonLoB(req)
+    cv = object_lob.ObjectLoB
+    aob = cv.PersonLoB(json.dumps(req))
     
     # persist aob + input json (- image data)
     keeper = {lat: req.lat, lon: req.lon, aob: aob}
