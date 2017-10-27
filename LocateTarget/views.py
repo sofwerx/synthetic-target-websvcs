@@ -10,11 +10,8 @@ from swx.triangulator import Triangulator
 def LocateTarget(request):
     
     t = Triangulator.TargetLoc()
-    [hasIntersect, (lat, lon)] = t.locate(request.body.decode("utf-8"))
-    
-    targetLoc = json.dumps({"hasIntersect": hasIntersect, "targetLoc": {"lat": lat, "lon": lon }})
-    
-    resp = HttpResponse(targetLoc)
+    targetLoc = t.locate(json.loads(request.body.decode("utf-8")))
+    resp = HttpResponse(json.dumps(targetLoc))
     resp.__setitem__("Content-Type", "application/json")
     
     return resp

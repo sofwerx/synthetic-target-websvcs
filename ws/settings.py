@@ -126,3 +126,30 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_ALLOW_ALL = True
 
 APPEND_SLASH = False
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+      'console':{
+        'level':'DEBUG',
+        'class':'logging.StreamHandler',
+        'formatter': 'simple'
+      }
+    },
+    'loggers': {
+      'django': {
+        'handlers':['console'],
+        'propagate': True,
+        'level':'INFO',
+      }
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        }
+    }
+}
