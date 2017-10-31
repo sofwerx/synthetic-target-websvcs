@@ -10,8 +10,9 @@ import json
 def PushCoT(request):
 
     cot = PushCoT.CursorOnTarget()
-    target = cot.push(json.loads(request.body.decode("utf-8")))
-    resp = HttpResponse(json.dumps(target))
-    resp.__setitem__("Content-Type", "application/json")
+    target = cot.atoms(json.loads(request.body.decode("utf-8")))
+    cot.pushUDP(target)
+    resp = HttpResponse(target)
+    resp.__setitem__("Content-Type", "application/xml")
     
     return resp
