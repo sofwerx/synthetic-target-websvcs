@@ -3,13 +3,13 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.http.request import HttpRequest
 
-from swx.cot import PushCoT
+from swx.cot import CoT
 import json
 
 @csrf_exempt
 def PushCoT(request):
 
-    cot = PushCoT.CursorOnTarget()
+    cot = CoT.CursorOnTarget()
     target = cot.atoms(json.loads(request.body.decode("utf-8")))
     cot.pushUDP(target)
     resp = HttpResponse(target)

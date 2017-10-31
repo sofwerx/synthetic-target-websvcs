@@ -18,11 +18,13 @@ from django.contrib import admin
 
 from LocateTarget.views import LocateTarget
 from GetObjectLoB.views import GetObjectLoB
+from PushCoT.views import PushCoT
 from DTA.views import DTA
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^LocateTarget/$', LocateTarget),
     url(r'^GetObjectLoB/$', GetObjectLoB),
+    url(r'^PushCoT/$', PushCoT),
     url(r'^DTA/$', DTA)
 ]
