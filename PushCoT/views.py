@@ -7,12 +7,30 @@ from swx.cot import CoT
 import json
 import urllib
 
+ATAK_IP = "192.168.1.150"
+if "ATAK_IP" in os.environ:
+  ATAK_IP = os.environ["ATAK_IP"]
+
+ATAK_PORT = 4242
+if "ATAK_PORT" in os.environ:
+  ATAK_PORT = int(os.environ["ATAK_PORT"])
+
 @csrf_exempt
 def PushCoT(request):
 
+    req = json.loads(request.body.decode("utf-8"))
+
+    ip_address = ATAK_IP
+    if "atak_ip" in req:
+      ip_address = req["atak_ip"]
+
+    port = ATAK_PORT
+    if "atak_port" in req:
+      port = int(req["atak_port"])
+
     cot = CoT.CursorOnTarget()
-    target = cot.atoms(json.loads(request.body.decode("utf-8")))
-    cot.pushUDP(target)
+    target = cot.atoms(req)
+    cot.pushUDP(ip_address, port, target)
     json_wrapper = {
         "cot_xml": urllib.quote(target)
     }
