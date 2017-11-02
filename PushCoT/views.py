@@ -27,7 +27,8 @@ def PushCoT(request):
 
     cot = CoT.CursorOnTarget()
     target = cot.atoms(req)
-    cot.pushUDP(ip_address, port, target)
+    cot.pushTCP(ip_address, port, target)
+    #cot.pushUDP(ip_address, port, target)
     json_wrapper = {
         "cot_xml": urllib.quote(target)
     }
