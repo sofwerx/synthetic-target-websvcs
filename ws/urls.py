@@ -20,11 +20,13 @@ from LocateTarget.views import LocateTarget
 from GetObjectLoB.views import GetObjectLoB
 from PushCoT.views import PushCoT
 from DTA.views import DTA
+from WriteToGeopkg.views import WriteToGeopkg
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^LocateTarget/$', LocateTarget),
     url(r'^GetObjectLoB/$', GetObjectLoB),
     url(r'^PushCoT/$', PushCoT),
-    url(r'^DTA/$', DTA)
+    url(r'^DTA/$', DTA),    
+    url(r'^WriteToGeopkg/$', WriteToGeopkg)
 ]
