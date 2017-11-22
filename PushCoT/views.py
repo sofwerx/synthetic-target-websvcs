@@ -31,9 +31,9 @@ def PushCoT(request):
 
     cot = CoT.CursorOnTarget()
     target = cot.atoms(req)
-    if atak_proto == "UDP":
+    if proto == "UDP":
       cot.pushUDP(ip_address, port, target)
-    if atak_proto == "TCP":
+    if proto == "TCP":
       cot.pushTCP(ip_address, port, target)
     json_wrapper = {
         "cot_xml": urllib.quote(target)
